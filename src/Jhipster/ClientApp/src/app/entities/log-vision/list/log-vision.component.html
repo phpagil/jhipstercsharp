@@ -1,0 +1,144 @@
+<div>
+  <h2 id="page-heading" data-cy="LogVisionHeading">
+    <span jhiTranslate="jhipsterApp.logVision.home.title">Log Visions</span>
+
+    <div class="d-flex justify-content-end">
+      <button
+        class="btn btn-info me-2"
+        (click)="loadAll()"
+        [disabled]="isLoading"
+      >
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="jhipsterApp.logVision.home.refreshListLabel"
+          >Refresh List</span
+        >
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-log-vision"
+        [routerLink]="['/log-vision/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="jhipsterApp.logVision.home.createLabel">
+          Create a new Log Vision
+        </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div
+    class="alert alert-warning"
+    id="no-result"
+    *ngIf="logVisions?.length === 0"
+  >
+    <span jhiTranslate="jhipsterApp.logVision.home.notFound"
+      >No logVisions found</span
+    >
+  </div>
+
+  <div
+    class="table-responsive"
+    id="entities"
+    *ngIf="logVisions && logVisions.length > 0"
+  >
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col">
+            <span jhiTranslate="jhipsterApp.logVision.createdAt"
+              >Created At</span
+            >
+          </th>
+          <th scope="col">
+            <span jhiTranslate="jhipsterApp.logVision.imagePath"
+              >Image Path</span
+            >
+          </th>
+          <th scope="col">
+            <span jhiTranslate="jhipsterApp.logVision.status">Status</span>
+          </th>
+          <th scope="col">
+            <span jhiTranslate="jhipsterApp.logVision.device">Device</span>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let logVision of logVisions; trackBy: trackId"
+          data-cy="entityTable"
+        >
+          <td>
+            <a [routerLink]="['/log-vision', logVision.id, 'view']">{{
+              logVision.id
+            }}</a>
+          </td>
+          <td>{{ logVision.createdAt | formatMediumDatetime }}</td>
+          <td>{{ logVision.imagePath }}</td>
+          <td jhiTranslate="{{ 'jhipsterApp.Status.' + logVision.status }}">
+            {{ logVision.status }}
+          </td>
+          <td>
+            <div *ngIf="logVision.device">
+              <a [routerLink]="['/device', logVision.device?.id, 'view']">{{
+                logVision.device?.id
+              }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/log-vision', logVision.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span
+                  class="d-none d-md-inline"
+                  jhiTranslate="entity.action.view"
+                  >View</span
+                >
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/log-vision', logVision.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span
+                  class="d-none d-md-inline"
+                  jhiTranslate="entity.action.edit"
+                  >Edit</span
+                >
+              </button>
+
+              <button
+                type="submit"
+                (click)="delete(logVision)"
+                class="btn btn-danger btn-sm"
+                data-cy="entityDeleteButton"
+              >
+                <fa-icon icon="times"></fa-icon>
+                <span
+                  class="d-none d-md-inline"
+                  jhiTranslate="entity.action.delete"
+                  >Delete</span
+                >
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

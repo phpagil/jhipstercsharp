@@ -1,0 +1,27 @@
+{
+  "jhipsterApp": {
+    "logTemperature": {
+      "home": {
+        "title": "Log Temperatures",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Log Temperature",
+        "createOrEditLabel": "Create or edit a Log Temperature",
+        "notFound": "No Log Temperatures found"
+      },
+      "created": "A new Log Temperature is created with identifier {{ param }}",
+      "updated": "A Log Temperature is updated with identifier {{ param }}",
+      "deleted": "A Log Temperature is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Log Temperature {{ id }}?"
+      },
+      "detail": {
+        "title": "Log Temperature"
+      },
+      "id": "ID",
+      "createdAt": "Created At",
+      "temperature": "Temperature",
+      "status": "Status",
+      "device": "Device"
+    }
+  }
+}

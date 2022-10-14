@@ -1,0 +1,26 @@
+{
+  "jhipsterApp": {
+    "notificationGroup": {
+      "home": {
+        "title": "Notification Groups",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar novo Notification Group",
+        "createOrEditLabel": "Criar ou editar Notification Group",
+        "notFound": "Nenhum Notification Group encontrado"
+      },
+      "created": "Um novo Notification Group foi criado com o identificador {{ param }}",
+      "updated": "Um Notification Group foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Notification Group foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Notification Group {{ id }}?"
+      },
+      "detail": {
+        "title": "Notification Group"
+      },
+      "id": "ID",
+      "description": "Description",
+      "device": "Device",
+      "notification": "Notification"
+    }
+  }
+}

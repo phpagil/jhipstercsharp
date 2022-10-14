@@ -1,0 +1,25 @@
+{
+  "jhipsterApp": {
+    "features": {
+      "home": {
+        "title": "Features",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar novo Features",
+        "createOrEditLabel": "Criar ou editar Features",
+        "notFound": "Nenhum Features encontrado"
+      },
+      "created": "Um novo Features foi criado com o identificador {{ param }}",
+      "updated": "Um Features foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Features foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Features {{ id }}?"
+      },
+      "detail": {
+        "title": "Features"
+      },
+      "id": "ID",
+      "description": "Description",
+      "route": "Route"
+    }
+  }
+}

@@ -24,10 +24,20 @@
     "enableGradleEnterprise": false,
     "enableHibernateCache": true,
     "enableTranslation": true,
+    "entities": [
+      "Device",
+      "Features",
+      "LogTemperature",
+      "LogVision",
+      "Notification",
+      "NotificationGroup",
+      "ProductionLine"
+    ],
     "entitySuffix": "",
     "jhiPrefix": "jhi",
     "jhipsterVersion": "7.8.1",
     "languages": ["pt-br", "en"],
+    "lastLiquibaseTimestamp": 1664336595000,
     "namespace": "Jhipster",
     "nativeLanguage": "pt-br",
     "otherModules": [

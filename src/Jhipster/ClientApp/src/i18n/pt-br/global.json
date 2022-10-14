@@ -7,6 +7,13 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entidades",
+        "device": "Device",
+        "features": "Features",
+        "logTemperature": "Log Temperature",
+        "logVision": "Log Vision",
+        "notification": "Notification",
+        "notificationGroup": "Notification Group",
+        "productionLine": "Production Line",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

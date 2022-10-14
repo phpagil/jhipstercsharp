@@ -1,0 +1,104 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="device">
+      <h2 data-cy="deviceDetailsHeading">
+        <span jhiTranslate="jhipsterApp.device.detail.title">Device</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ device.id }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="jhipsterApp.device.description">Description</span>
+        </dt>
+        <dd>
+          <span>{{ device.description }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="jhipsterApp.device.sensorType">Sensor Type</span>
+        </dt>
+        <dd>
+          <span
+            jhiTranslate="{{ 'jhipsterApp.SensorType.' + device.sensorType }}"
+            >{{ device.sensorType }}</span
+          >
+        </dd>
+        <dt>
+          <span jhiTranslate="jhipsterApp.device.macAddress">Mac Address</span>
+        </dt>
+        <dd>
+          <span>{{ device.macAddress }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp.device.status">Status</span></dt>
+        <dd>
+          <span>{{ device.status }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="jhipsterApp.device.productionLine"
+            >Production Line</span
+          >
+        </dt>
+        <dd>
+          <div *ngIf="device.productionLine">
+            <a
+              [routerLink]="[
+                '/production-line',
+                device.productionLine?.id,
+                'view'
+              ]"
+              >{{ device.productionLine?.id }}</a
+            >
+          </div>
+        </dd>
+        <dt>
+          <span jhiTranslate="jhipsterApp.device.notificationGroup"
+            >Notification Group</span
+          >
+        </dt>
+        <dd>
+          <div *ngIf="device.notificationGroup">
+            <a
+              [routerLink]="[
+                '/notification-group',
+                device.notificationGroup?.id,
+                'view'
+              ]"
+              >{{ device.notificationGroup?.id }}</a
+            >
+          </div>
+        </dd>
+      </dl>
+
+      <button
+        type="submit"
+        (click)="previousState()"
+        class="btn btn-info"
+        data-cy="entityDetailsBackButton"
+      >
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span
+          jhiTranslate="entity.action.back"
+          >Back</span
+        >
+      </button>
+
+      <button
+        type="button"
+        [routerLink]="['/device', device.id, 'edit']"
+        class="btn btn-primary"
+      >
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span
+          jhiTranslate="entity.action.edit"
+          >Edit</span
+        >
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,73 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="logVision">
+      <h2 data-cy="logVisionDetailsHeading">
+        <span jhiTranslate="jhipsterApp.logVision.detail.title"
+          >Log Vision</span
+        >
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ logVision.id }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="jhipsterApp.logVision.createdAt">Created At</span>
+        </dt>
+        <dd>
+          <span>{{ logVision.createdAt | formatMediumDatetime }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="jhipsterApp.logVision.imagePath">Image Path</span>
+        </dt>
+        <dd>
+          <span>{{ logVision.imagePath }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp.logVision.status">Status</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'jhipsterApp.Status.' + logVision.status }}">{{
+            logVision.status
+          }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp.logVision.device">Device</span></dt>
+        <dd>
+          <div *ngIf="logVision.device">
+            <a [routerLink]="['/device', logVision.device?.id, 'view']">{{
+              logVision.device?.id
+            }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button
+        type="submit"
+        (click)="previousState()"
+        class="btn btn-info"
+        data-cy="entityDetailsBackButton"
+      >
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span
+          jhiTranslate="entity.action.back"
+          >Back</span
+        >
+      </button>
+
+      <button
+        type="button"
+        [routerLink]="['/log-vision', logVision.id, 'edit']"
+        class="btn btn-primary"
+      >
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span
+          jhiTranslate="entity.action.edit"
+          >Edit</span
+        >
+      </button>
+    </div>
+  </div>
+</div>

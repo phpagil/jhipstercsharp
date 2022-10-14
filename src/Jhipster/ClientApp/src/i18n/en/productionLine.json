@@ -1,0 +1,27 @@
+{
+  "jhipsterApp": {
+    "productionLine": {
+      "home": {
+        "title": "Production Lines",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Production Line",
+        "createOrEditLabel": "Create or edit a Production Line",
+        "notFound": "No Production Lines found"
+      },
+      "created": "A new Production Line is created with identifier {{ param }}",
+      "updated": "A Production Line is updated with identifier {{ param }}",
+      "deleted": "A Production Line is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Production Line {{ id }}?"
+      },
+      "detail": {
+        "title": "Production Line"
+      },
+      "id": "ID",
+      "description": "Description",
+      "createdAt": "Created At",
+      "updatedAt": "Updated At",
+      "device": "Device"
+    }
+  }
+}

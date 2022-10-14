@@ -1,0 +1,109 @@
+
+enum SensorType {
+  VISION,
+  TEMPERATURE
+}
+
+enum Status {
+  OK,
+  NG
+}
+
+
+
+entity Device {
+	description String maxlength(45),
+	sensorType SensorType,
+	macAddress String maxlength(45),
+	status Boolean
+}
+
+entity Features {
+	description String maxlength(45),
+	route String maxlength(45)
+}
+
+entity LogTemperature {
+	createdAt Instant,
+	temperature BigDecimal,
+	status Status
+}
+
+entity LogVision {
+	createdAt Instant,
+	imagePath String maxlength(200),
+	status Status
+}
+
+entity Notification {
+	message String maxlength(45),
+	statusReady Boolean,
+	statusSent Boolean
+}
+
+entity NotificationGroup {
+	description String maxlength(45)
+}
+
+entity ProductionLine {
+	description String maxlength(45),
+	createdAt Instant,
+	updatedAt Instant
+}
+
+/*
+entity Profile {
+	description String maxlength(45)
+}
+*/
+
+/*
+entity User {
+	name String required maxlength(45),
+	login String required maxlength(45),
+	email String required maxlength(45),
+	password String required maxlength(45),
+	createdAt Instant,
+	updatedAt Instant,
+	status Boolean
+}
+*/
+
+
+// Relations
+relationship ManyToOne {
+	Device{productionLine required} to ProductionLine{device}
+}
+
+relationship ManyToOne {
+	Device{notificationGroup required} to NotificationGroup{device}
+}
+
+relationship ManyToOne {
+	LogTemperature{device required} to Device{logTemperature}
+}
+
+relationship ManyToOne {
+	LogVision{device required} to Device{logVision}
+}
+
+relationship ManyToOne {
+	Notification{notificationGroup required} to NotificationGroup{notification}
+}
+
+// TODO This is a pure ManyToMany relation (delete me and decide owner side)
+relationship ManyToMany {
+	NotificationGroupHasUser{user required} to User{notificationGroupHasUser}
+}
+
+// TODO This is a pure ManyToMany relation (delete me and decide owner side)
+relationship ManyToMany {
+	NotificationReadyByUser{user required} to User{notificationReadyByUser}
+}
+
+// Options
+service * with serviceClass
+paginate * with pagination
+dto * with mapstruct
+filter *
+

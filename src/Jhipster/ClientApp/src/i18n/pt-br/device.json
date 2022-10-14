@@ -1,0 +1,31 @@
+{
+  "jhipsterApp": {
+    "device": {
+      "home": {
+        "title": "Devices",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar novo Device",
+        "createOrEditLabel": "Criar ou editar Device",
+        "notFound": "Nenhum Device encontrado"
+      },
+      "created": "Um novo Device foi criado com o identificador {{ param }}",
+      "updated": "Um Device foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Device foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Device {{ id }}?"
+      },
+      "detail": {
+        "title": "Device"
+      },
+      "id": "ID",
+      "description": "Description",
+      "sensorType": "Sensor Type",
+      "macAddress": "Mac Address",
+      "status": "Status",
+      "productionLine": "Production Line",
+      "notificationGroup": "Notification Group",
+      "logTemperature": "Log Temperature",
+      "logVision": "Log Vision"
+    }
+  }
+}

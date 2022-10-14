@@ -1,0 +1,82 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="logTemperature">
+      <h2 data-cy="logTemperatureDetailsHeading">
+        <span jhiTranslate="jhipsterApp.logTemperature.detail.title"
+          >Log Temperature</span
+        >
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ logTemperature.id }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="jhipsterApp.logTemperature.createdAt"
+            >Created At</span
+          >
+        </dt>
+        <dd>
+          <span>{{ logTemperature.createdAt | formatMediumDatetime }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="jhipsterApp.logTemperature.temperature"
+            >Temperature</span
+          >
+        </dt>
+        <dd>
+          <span>{{ logTemperature.temperature }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="jhipsterApp.logTemperature.status">Status</span>
+        </dt>
+        <dd>
+          <span
+            jhiTranslate="{{ 'jhipsterApp.Status.' + logTemperature.status }}"
+            >{{ logTemperature.status }}</span
+          >
+        </dd>
+        <dt>
+          <span jhiTranslate="jhipsterApp.logTemperature.device">Device</span>
+        </dt>
+        <dd>
+          <div *ngIf="logTemperature.device">
+            <a [routerLink]="['/device', logTemperature.device?.id, 'view']">{{
+              logTemperature.device?.id
+            }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button
+        type="submit"
+        (click)="previousState()"
+        class="btn btn-info"
+        data-cy="entityDetailsBackButton"
+      >
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span
+          jhiTranslate="entity.action.back"
+          >Back</span
+        >
+      </button>
+
+      <button
+        type="button"
+        [routerLink]="['/log-temperature', logTemperature.id, 'edit']"
+        class="btn btn-primary"
+      >
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span
+          jhiTranslate="entity.action.edit"
+          >Edit</span
+        >
+      </button>
+    </div>
+  </div>
+</div>

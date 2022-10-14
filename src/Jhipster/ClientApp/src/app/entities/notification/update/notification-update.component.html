@@ -1,0 +1,187 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form
+      name="editForm"
+      role="form"
+      novalidate
+      (ngSubmit)="save()"
+      [formGroup]="editForm"
+    >
+      <h2
+        id="jhi-notification-heading"
+        data-cy="NotificationCreateUpdateHeading"
+        jhiTranslate="jhipsterApp.notification.home.createOrEditLabel"
+      >
+        Create or edit a Notification
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label
+            class="form-label"
+            jhiTranslate="global.field.id"
+            for="field_id"
+            >ID</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="id"
+            id="field_id"
+            data-cy="id"
+            formControlName="id"
+            [readonly]="true"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="jhipsterApp.notification.message"
+            for="field_message"
+            >Message</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="message"
+            id="field_message"
+            data-cy="message"
+            formControlName="message"
+          />
+          <div
+            *ngIf="
+              editForm.get('message')!.invalid &&
+              (editForm.get('message')!.dirty ||
+                editForm.get('message')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('message')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 45 }"
+            >
+              This field cannot be longer than 45 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="jhipsterApp.notification.statusReady"
+            for="field_statusReady"
+            >Status Ready</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="statusReady"
+            id="field_statusReady"
+            data-cy="statusReady"
+            formControlName="statusReady"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="jhipsterApp.notification.statusSent"
+            for="field_statusSent"
+            >Status Sent</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="statusSent"
+            id="field_statusSent"
+            data-cy="statusSent"
+            formControlName="statusSent"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="jhipsterApp.notification.notificationGroup"
+            for="field_notificationGroup"
+            >Notification Group</label
+          >
+          <select
+            class="form-control"
+            id="field_notificationGroup"
+            data-cy="notificationGroup"
+            name="notificationGroup"
+            formControlName="notificationGroup"
+          >
+            <option
+              *ngIf="!editForm.get('notificationGroup')!.value"
+              [ngValue]="null"
+              selected
+            ></option>
+            <option
+              [ngValue]="
+                notificationGroupOption.id ===
+                editForm.get('notificationGroup')!.value?.id
+                  ? editForm.get('notificationGroup')!.value
+                  : notificationGroupOption
+              "
+              *ngFor="
+                let notificationGroupOption of notificationGroupsSharedCollection;
+                trackBy: trackNotificationGroupById
+              "
+            >
+              {{ notificationGroupOption.id }}
+            </option>
+          </select>
+        </div>
+        <div
+          *ngIf="
+            editForm.get(['notificationGroup'])!.invalid &&
+            (editForm.get(['notificationGroup'])!.dirty ||
+              editForm.get(['notificationGroup'])!.touched)
+          "
+        >
+          <small
+            class="form-text text-danger"
+            *ngIf="editForm.get(['notificationGroup'])?.errors?.required"
+            jhiTranslate="entity.validation.required"
+          >
+            This field is required.
+          </small>
+        </div>
+      </div>
+
+      <div>
+        <button
+          type="button"
+          id="cancel-save"
+          data-cy="entityCreateCancelButton"
+          class="btn btn-secondary"
+          (click)="previousState()"
+        >
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span
+            jhiTranslate="entity.action.cancel"
+            >Cancel</span
+          >
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span
+            jhiTranslate="entity.action.save"
+            >Save</span
+          >
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

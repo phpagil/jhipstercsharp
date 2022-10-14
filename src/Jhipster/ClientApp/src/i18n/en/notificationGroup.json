@@ -1,0 +1,26 @@
+{
+  "jhipsterApp": {
+    "notificationGroup": {
+      "home": {
+        "title": "Notification Groups",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Notification Group",
+        "createOrEditLabel": "Create or edit a Notification Group",
+        "notFound": "No Notification Groups found"
+      },
+      "created": "A new Notification Group is created with identifier {{ param }}",
+      "updated": "A Notification Group is updated with identifier {{ param }}",
+      "deleted": "A Notification Group is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Notification Group {{ id }}?"
+      },
+      "detail": {
+        "title": "Notification Group"
+      },
+      "id": "ID",
+      "description": "Description",
+      "device": "Device",
+      "notification": "Notification"
+    }
+  }
+}

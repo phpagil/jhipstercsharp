@@ -1,0 +1,9 @@
+{
+  "jhipsterApp": {
+    "Status": {
+      "null": "",
+      "OK": "OK",
+      "NG": "NG"
+    }
+  }
+}

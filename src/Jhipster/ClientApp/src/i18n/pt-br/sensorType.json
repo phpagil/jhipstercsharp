@@ -1,0 +1,9 @@
+{
+  "jhipsterApp": {
+    "SensorType": {
+      "null": "",
+      "VISION": "VISION",
+      "TEMPERATURE": "TEMPERATURE"
+    }
+  }
+}
