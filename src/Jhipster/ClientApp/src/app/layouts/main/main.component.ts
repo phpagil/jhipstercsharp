@@ -8,9 +8,11 @@ import { AccountService } from "app/core/auth/account.service";
 
 @Component({
   selector: "jhi-main",
-  templateUrl: "./main.component.html",
+  templateUrl: "./main.component.html"
 })
 export class MainComponent implements OnInit {
+  public isCollapsed = true;
+
   private renderer: Renderer2;
 
   constructor(
@@ -27,6 +29,7 @@ export class MainComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
     // try to log in automatically
     this.accountService.identity().subscribe();
 

@@ -13,8 +13,22 @@ import { SortByDirective } from "./sort/sort-by.directive";
 import { SortDirective } from "./sort/sort.directive";
 import { ItemCountComponent } from "./pagination/item-count.component";
 
+import { NZ_ICONS } from 'ng-zorro-antd/icon';
+import { NZ_I18N, en_US } from 'ng-zorro-antd/i18n';
+import { IconDefinition } from '@ant-design/icons-angular';
+import * as AllIcons from '@ant-design/icons-angular/icons';
+
+import { NgZorroAntdModule } from "./ng-zorro-module";
+
+//registerLocaleData(en);
+
+const antDesignIcons = AllIcons as {
+  [key: string]: IconDefinition;
+};
+const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesignIcons[key])
+
 @NgModule({
-  imports: [SharedLibsModule],
+  imports: [SharedLibsModule, NgZorroAntdModule],
   declarations: [
     FindLanguageFromKeyPipe,
     TranslateDirective,
@@ -27,6 +41,10 @@ import { ItemCountComponent } from "./pagination/item-count.component";
     SortByDirective,
     SortDirective,
     ItemCountComponent,
+  ],
+  providers: [ 
+    { provide: NZ_I18N, useValue: en_US }, 
+    { provide: NZ_ICONS, useValue: icons } 
   ],
   exports: [
     SharedLibsModule,
@@ -41,6 +59,7 @@ import { ItemCountComponent } from "./pagination/item-count.component";
     SortByDirective,
     SortDirective,
     ItemCountComponent,
+    NgZorroAntdModule
   ],
 })
 export class SharedModule {}

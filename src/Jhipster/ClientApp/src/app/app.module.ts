@@ -11,6 +11,7 @@ import {
   NgbDateAdapter,
   NgbDatepickerConfig,
 } from "@ng-bootstrap/ng-bootstrap";
+import { NzButtonModule } from 'ng-zorro-antd/button';
 
 import { ApplicationConfigService } from "app/core/config/application-config.service";
 import "./config/dayjs";
@@ -45,6 +46,7 @@ import { ErrorComponent } from "./layouts/error/error.component";
       caseSensitive: true,
     }),
     TranslationModule,
+    NzButtonModule
   ],
   providers: [
     Title,

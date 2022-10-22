@@ -13,8 +13,7 @@ import { EntityNavbarItems } from "app/entities/entity-navbar-items";
 
 @Component({
   selector: "jhi-navbar",
-  templateUrl: "./navbar.component.html",
-  styleUrls: ["./navbar.component.scss"],
+  templateUrl: "./navbar.component.html"
 })
 export class NavbarComponent implements OnInit {
   inProduction?: boolean;
