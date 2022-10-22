@@ -1,8 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { HttpResponse } from "@angular/common/http";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
-import { NzButtonModule } from 'ng-zorro-antd/button';
-
 import { IDevice } from "../device.model";
 import { DeviceService } from "../service/device.service";
 import { DeviceDeleteDialogComponent } from "../delete/device-delete-dialog.component";

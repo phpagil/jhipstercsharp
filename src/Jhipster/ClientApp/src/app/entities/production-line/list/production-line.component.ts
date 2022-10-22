@@ -11,7 +11,10 @@ import { ProductionLineDeleteDialogComponent } from "../delete/production-line-d
   templateUrl: "./production-line.component.html",
 })
 export class ProductionLineComponent implements OnInit {
-  productionLines?: IProductionLine[];
+  productionLines: IProductionLine[] = [{
+    id: 0,
+    description: ''
+  }];
   isLoading = false;
 
   constructor(

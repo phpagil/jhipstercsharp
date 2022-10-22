@@ -20,8 +20,6 @@ import * as AllIcons from '@ant-design/icons-angular/icons';
 
 import { NgZorroAntdModule } from "./ng-zorro-module";
 
-//registerLocaleData(en);
-
 const antDesignIcons = AllIcons as {
   [key: string]: IconDefinition;
 };

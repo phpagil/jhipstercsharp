@@ -44,6 +44,99 @@
     >
   </div>
 
+  <nz-table #basicTable [nzData]="productionLines">
+    <thead>
+      <tr>
+        <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+        <th scope="col">
+          <span jhiTranslate="jhipsterApp.productionLine.description"
+            >Description</span
+          >
+        </th>
+        <th scope="col">
+          <span jhiTranslate="jhipsterApp.productionLine.createdAt"
+            >Created At</span
+          >
+        </th>
+        <th scope="col">
+          <span jhiTranslate="jhipsterApp.productionLine.updatedAt"
+            >Updated At</span
+          >
+        </th>
+        <th scope="col">
+          <span>Actions</span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let productionLine of productionLines; trackBy: trackId"
+        data-cy="entityTable"
+      >
+      <tr
+          *ngFor="let productionLine of productionLines; trackBy: trackId"
+          data-cy="entityTable"
+        >
+          <td>
+            <a [routerLink]="['/production-line', productionLine.id, 'view']">{{
+              productionLine.id
+            }}</a>
+          </td>
+          <td>{{ productionLine.description }}</td>
+          <td>{{ productionLine.createdAt | formatMediumDatetime }}</td>
+          <td>{{ productionLine.updatedAt | formatMediumDatetime }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/production-line', productionLine.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span
+                  class="d-none d-md-inline"
+                  jhiTranslate="entity.action.view"
+                  >View</span
+                >
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/production-line', productionLine.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span
+                  class="d-none d-md-inline"
+                  jhiTranslate="entity.action.edit"
+                  >Edit</span
+                >
+              </button>
+
+              <button
+                type="submit"
+                (click)="delete(productionLine)"
+                class="btn btn-danger btn-sm"
+                data-cy="entityDeleteButton"
+              >
+                <fa-icon icon="times"></fa-icon>
+                <span
+                  class="d-none d-md-inline"
+                  jhiTranslate="entity.action.delete"
+                  >Delete</span
+                >
+              </button>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </nz-table>
+
+  </div>
+
+  <!--
   <div
     class="table-responsive"
     id="entities"
@@ -134,3 +227,4 @@
     </table>
   </div>
 </div>
+-->

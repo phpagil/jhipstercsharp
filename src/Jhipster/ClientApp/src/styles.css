@@ -6,50 +6,57 @@
     padding: 0 24px;
     cursor: pointer;
     transition: color 0.3s;
-  }
+}
 
-  .trigger:hover {
+.trigger:hover {
     color: #1890ff;
-  }
+}
 
-  .logo {
+.logo {
     height: 32px;
     background: rgba(255, 255, 255, 0.2);
     margin: 16px;
-  }
+}
 
-  nz-header {
+nz-header {
     background: #fff;
     padding: 0;
-  }
+}
 
-  nz-content {
+nz-content {
     margin: 0 16px;
-  }
+}
 
-  nz-breadcrumb {
+nz-breadcrumb {
     margin: 16px 0;
-  }
+}
 
-  .inner-content {
+.inner-content {
     padding: 24px;
     background: #fff;
     min-height: 860px;
-  }
+}
 
-  nz-footer {
+nz-footer {
     text-align: center;
-  }
+}
 
-  .ant-layout-sider-children {
+.ant-layout-sider-children {
     background: linear-gradient(180deg, #008651 0%, #003865 100%) !important;
-  }
+}
 
-  .ant-menu-item {
+.ant-menu-item {
     background: none !important;
-  }
+}
 
-  .ant-layout-header {
+.ant-layout-header {
     background: #ffffff !important;
     color: #000000 !important;
-  }
+}
+
+.ant-menu-dark .ant-menu-sub,
+.ant-menu.ant-menu-dark,
+.ant-menu.ant-menu-dark .ant-menu-sub {
+    color: rgba(255, 255, 255, 0.65);
+    background: none;
+}

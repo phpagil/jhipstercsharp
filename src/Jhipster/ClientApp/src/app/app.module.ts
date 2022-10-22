@@ -1,8 +1,16 @@
 import { NgModule, LOCALE_ID } from "@angular/core";
 import { registerLocaleData } from "@angular/common";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientJsonpModule, HttpClientModule } from "@angular/common/http";
 import locale from "@angular/common/locales/pt";
 import { BrowserModule, Title } from "@angular/platform-browser";
+
+
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import en from '@angular/common/locales/en';
+
 import { ServiceWorkerModule } from "@angular/service-worker";
 import { FaIconLibrary } from "@fortawesome/angular-fontawesome";
 import { NgxWebstorageModule } from "ngx-webstorage";
@@ -30,6 +38,7 @@ import { PageRibbonComponent } from "./layouts/profiles/page-ribbon.component";
 import { ActiveMenuDirective } from "./layouts/navbar/active-menu.directive";
 import { ErrorComponent } from "./layouts/error/error.component";
 
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -40,6 +49,9 @@ import { ErrorComponent } from "./layouts/error/error.component";
     // Set this to true to enable service worker (PWA)
     ServiceWorkerModule.register("ngsw-worker.js", { enabled: false }),
     HttpClientModule,
+    BrowserAnimationsModule,
+    ScrollingModule,
+    DragDropModule,
     NgxWebstorageModule.forRoot({
       prefix: "jhi",
       separator: "-",
