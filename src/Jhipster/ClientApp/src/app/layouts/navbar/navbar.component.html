@@ -1,39 +1,75 @@
 <ul nz-menu nzTheme="dark" nzMode="inline">
     <li nz-menu-item>
         <a routerLink="/" (click)="collapseNavbar()">
-            <span nz-icon style="font-size: 16px;" nzType="dashboard"></span>
+            <span nz-icon style="font-size: 16px" nzType="dashboard"></span>
             <span>Dashboard</span>
         </a>
     </li>
     <li nz-menu-item>
-        <span nz-icon style="font-size: 16px;" nzType="fire"></span>
+        <span nz-icon style="font-size: 16px" nzType="fire"></span>
         <span>
-          <a jhiTranslate="global.menu.entities.logTemperature" routerLink="/log-temperature">Log Temperature</a>
+            <a
+                jhiTranslate="global.menu.entities.logTemperature"
+                routerLink="/log-temperature"
+                >Log Temperature</a
+            >
         </span>
     </li>
     <li nz-menu-item>
-        <span nz-icon style="font-size: 16px;" nzType="video-camera"></span>
+        <span
+            nz-icon
+            style="font-size: 16px"
+            nzType="video-camera"
+        ></span>
         <span>
-          <a jhiTranslate="global.menu.entities.logVision" routerLink="/log-vision">Log Vision</a>
+            <a
+                jhiTranslate="global.menu.entities.logVision"
+                routerLink="/log-vision"
+                >Log Vision</a
+            >
         </span>
     </li>
-    <li nz-menu-item>
-      <span nz-icon style="font-size: 16px;" nzType="usb"></span>
-      <span>
-        <a jhiTranslate="global.menu.entities.device" routerLink="/device">Devices</a>
-      </span>
-    </li>
-    <li nz-menu-item>
-      <span nz-icon style="font-size: 16px;" nzType="mail"></span>
-      <span>
-        <a jhiTranslate="global.menu.entities.notificationGroup" routerLink="/notification-group">Notification Group</a>
-      </span>
-    </li>
-    <li nz-menu-item>
-      <span nz-icon style="font-size: 16px;" nzType="deployment-unit"></span>
-      <span>
-        <a jhiTranslate="global.menu.entities.productionLine" routerLink="/production-line">Production Line</a>
-      </span>
+    <li nz-submenu>
+        <span title>
+          <span nz-icon  style="font-size: 16px" nzType="setting"></span>
+          <span>Settings</span>
+        </span>
+        <ul>
+            <li nz-menu-item>
+                <span nz-icon style="font-size: 16px" nzType="usb"></span>
+                <span>
+                    <a
+                        jhiTranslate="global.menu.entities.device"
+                        routerLink="/device"
+                        >Devices</a
+                    >
+                </span>
+            </li>
+            <li nz-menu-item>
+                <span nz-icon style="font-size: 16px" nzType="mail"></span>
+                <span>
+                    <a
+                        jhiTranslate="global.menu.entities.notificationGroup"
+                        routerLink="/notification-group"
+                        >Notification Group</a
+                    >
+                </span>
+            </li>
+            <li nz-menu-item>
+                <span
+                    nz-icon
+                    style="font-size: 16px"
+                    nzType="deployment-unit"
+                ></span>
+                <span>
+                    <a
+                        jhiTranslate="global.menu.entities.productionLine"
+                        routerLink="/production-line"
+                        >Production Line</a
+                    >
+                </span>
+            </li>
+        </ul>
     </li>
     <li nz-submenu nzTitle="Relatórios" nzIcon="bar-chart">
         <ul>
@@ -42,18 +78,12 @@
         </ul>
     </li>
     <li nz-menu-item>
-        <span nz-icon style="font-size: 16px;" nzType="logout" nzTheme="outline"></span>
+        <span
+            nz-icon
+            style="font-size: 16px"
+            nzType="logout"
+            nzTheme="outline"
+        ></span>
         <span>Sair</span>
-    </li>
-    <li nz-submenu nzTitle="Navigation Three" nzIcon="setting">
-      <ul>
-        <li nz-menu-item>Option 11</li>
-        <li nz-menu-item>Option 12</li>
-        <li nz-menu-item>Option 13</li>
-      </ul>
-    </li>
-    <li nz-menu-item>
-        <span nz-icon style="font-size: 16px;" nzType="setting"></span>
-        <span>Configurações</span>
     </li>
 </ul>

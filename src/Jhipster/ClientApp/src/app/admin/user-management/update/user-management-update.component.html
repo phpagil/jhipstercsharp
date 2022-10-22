@@ -222,7 +222,7 @@
       </div>
 
       <div *ngIf="user">
-        <button
+        <button nz-button nzType="primary"
           type="button"
           class="btn btn-secondary"
           (click)="previousState()"
@@ -233,7 +233,7 @@
           >
         </button>
 
-        <button
+        <button nz-button nzType="primary"
           type="submit"
           [disabled]="editForm.invalid || isSaving"
           class="btn btn-primary"

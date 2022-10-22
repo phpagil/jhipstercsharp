@@ -5,7 +5,7 @@
     >
 
     <div class="d-flex justify-content-end">
-      <button
+      <button nz-button nzType="primary"
         class="btn btn-info me-2"
         (click)="loadAll()"
         [disabled]="isLoading"
@@ -16,7 +16,7 @@
         >
       </button>
 
-      <button
+      <button nz-button nzType="primary"
         id="jh-create-entity"
         data-cy="entityCreateButton"
         class="btn btn-primary jh-create-entity create-notification-group"
@@ -79,7 +79,7 @@
           <td>{{ notificationGroup.description }}</td>
           <td class="text-end">
             <div class="btn-group">
-              <button
+              <button nz-button nzType="primary"
                 type="submit"
                 [routerLink]="[
                   '/notification-group',
@@ -97,7 +97,7 @@
                 >
               </button>
 
-              <button
+              <button nz-button nzType="primary"
                 type="submit"
                 [routerLink]="[
                   '/notification-group',
@@ -115,7 +115,7 @@
                 >
               </button>
 
-              <button
+              <button nz-button nzType="primary"
                 type="submit"
                 (click)="delete(notificationGroup)"
                 class="btn btn-danger btn-sm"

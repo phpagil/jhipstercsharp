@@ -8,7 +8,7 @@
     >
 
     <div class="d-flex justify-content-end">
-      <button
+      <button nz-button nzType="primary"
         class="btn btn-info me-2"
         (click)="loadAll()"
         [disabled]="isLoading"
@@ -18,7 +18,7 @@
           >Refresh List</span
         >
       </button>
-      <button class="btn btn-primary jh-create-entity" [routerLink]="['./new']">
+      <button nz-button nzType="primary" class="btn btn-primary jh-create-entity" [routerLink]="['./new']">
         <fa-icon icon="plus"></fa-icon>
         <span jhiTranslate="userManagement.home.createLabel"
           >Create a new User</span
@@ -90,7 +90,7 @@
           <td>{{ user.login }}</td>
           <td>{{ user.email }}</td>
           <td>
-            <button
+            <button nz-button nzType="primary"
               class="btn btn-danger btn-sm"
               (click)="setActive(user, true)"
               *ngIf="!user.activated"
@@ -98,7 +98,7 @@
             >
               Deactivated
             </button>
-            <button
+            <button nz-button nzType="primary"
               class="btn btn-success btn-sm"
               (click)="setActive(user, false)"
               *ngIf="user.activated"
@@ -121,7 +121,7 @@
           <td>{{ user.lastModifiedDate | date: "dd/MM/yy HH:mm" }}</td>
           <td class="text-end">
             <div class="btn-group">
-              <button
+              <button nz-button nzType="primary"
                 type="submit"
                 [routerLink]="['./', user.login, 'view']"
                 class="btn btn-info btn-sm"
@@ -134,7 +134,7 @@
                 >
               </button>
 
-              <button
+              <button nz-button nzType="primary"
                 type="submit"
                 [routerLink]="['./', user.login, 'edit']"
                 queryParamsHandling="merge"
@@ -148,7 +148,7 @@
                 >
               </button>
 
-              <button
+              <button nz-button nzType="primary"
                 type="button"
                 (click)="deleteUser(user)"
                 class="btn btn-danger btn-sm"

@@ -3,7 +3,7 @@
     <span jhiTranslate="jhipsterApp.device.home.title">Devices 2</span>
 
     <div class="d-flex justify-content-end">
-      <button
+      <button nz-button nzType="primary"
         class="btn btn-info me-2"
         (click)="loadAll()"
         [disabled]="isLoading"
@@ -14,7 +14,7 @@
         >
       </button>
 
-      <button
+      <button nz-button nzType="primary"
         id="jh-create-entity"
         data-cy="entityCreateButton"
         class="btn btn-primary jh-create-entity create-device"
@@ -26,7 +26,7 @@
         </span>
       </button>
 
-      <button nz-button nzType="primary">Primary</button>
+      <button nz-button nzType="primary" nz-button nzType="primary">Primary</button>
 
     </div>
   </h2>
@@ -41,12 +41,8 @@
     >
   </div>
 
-  <div
-    class="table-responsive"
-    id="entities"
-    *ngIf="devices && devices.length > 0"
-  >
-    <table class="table table-striped" aria-describedby="page-heading">
+  
+  <nz-table #basicTable [nzData]="devices">
       <thead>
         <tr>
           <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
@@ -123,7 +119,7 @@
           </td>
           <td class="text-end">
             <div class="btn-group">
-              <button
+              <button nz-button nzType="primary"
                 type="submit"
                 [routerLink]="['/device', device.id, 'view']"
                 class="btn btn-info btn-sm"
@@ -137,7 +133,7 @@
                 >
               </button>
 
-              <button
+              <button nz-button nzType="primary"
                 type="submit"
                 [routerLink]="['/device', device.id, 'edit']"
                 class="btn btn-primary btn-sm"
@@ -151,7 +147,7 @@
                 >
               </button>
 
-              <button
+              <button nz-button nzType="primary"
                 type="submit"
                 (click)="delete(device)"
                 class="btn btn-danger btn-sm"
@@ -168,6 +164,5 @@
           </td>
         </tr>
       </tbody>
-    </table>
-  </div>
+    </nz-table>
 </div>

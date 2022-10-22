@@ -28,7 +28,7 @@
         </dd>
       </dl>
 
-      <button
+      <button nz-button nzType="primary"
         type="submit"
         (click)="previousState()"
         class="btn btn-info"
@@ -40,7 +40,7 @@
         >
       </button>
 
-      <button
+      <button nz-button nzType="primary"
         type="button"
         [routerLink]="['/notification-group', notificationGroup.id, 'edit']"
         class="btn btn-primary"

@@ -50,7 +50,7 @@
           <small>{{ logger.name | slice: 0:140 }}</small>
         </td>
         <td>
-          <button
+          <button nz-button nzType="primary"
             (click)="changeLevel(logger.name, 'TRACE')"
             [ngClass]="logger.level === 'TRACE' ? 'btn-primary' : 'btn-light'"
             class="btn btn-sm"
@@ -58,7 +58,7 @@
             TRACE
           </button>
 
-          <button
+          <button nz-button nzType="primary"
             (click)="changeLevel(logger.name, 'DEBUG')"
             [ngClass]="logger.level === 'DEBUG' ? 'btn-success' : 'btn-light'"
             class="btn btn-sm"
@@ -66,7 +66,7 @@
             DEBUG
           </button>
 
-          <button
+          <button nz-button nzType="primary"
             (click)="changeLevel(logger.name, 'INFO')"
             [ngClass]="logger.level === 'INFO' ? 'btn-info' : 'btn-light'"
             class="btn btn-sm"
@@ -74,7 +74,7 @@
             INFO
           </button>
 
-          <button
+          <button nz-button nzType="primary"
             (click)="changeLevel(logger.name, 'WARN')"
             [ngClass]="logger.level === 'WARN' ? 'btn-warning' : 'btn-light'"
             class="btn btn-sm"
@@ -82,7 +82,7 @@
             WARN
           </button>
 
-          <button
+          <button nz-button nzType="primary"
             (click)="changeLevel(logger.name, 'ERROR')"
             [ngClass]="logger.level === 'ERROR' ? 'btn-danger' : 'btn-light'"
             class="btn btn-sm"
@@ -90,7 +90,7 @@
             ERROR
           </button>
 
-          <button
+          <button nz-button nzType="primary"
             (click)="changeLevel(logger.name, 'OFF')"
             [ngClass]="logger.level === 'OFF' ? 'btn-secondary' : 'btn-light'"
             class="btn btn-sm"

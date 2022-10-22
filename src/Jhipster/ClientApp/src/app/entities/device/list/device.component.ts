@@ -10,7 +10,7 @@ import { DeviceDeleteDialogComponent } from "../delete/device-delete-dialog.comp
   templateUrl: "./device.component.html",
 })
 export class DeviceComponent implements OnInit {
-  devices?: IDevice[];
+  devices: IDevice[] = [{}];
   isLoading = false;
 
   constructor(

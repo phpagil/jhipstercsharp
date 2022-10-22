@@ -3,7 +3,7 @@
     <span jhiTranslate="jhipsterApp.features.home.title">Features</span>
 
     <div class="d-flex justify-content-end">
-      <button
+      <button nz-button nzType="primary"
         class="btn btn-info me-2"
         (click)="loadAll()"
         [disabled]="isLoading"
@@ -14,7 +14,7 @@
         >
       </button>
 
-      <button
+      <button nz-button nzType="primary"
         id="jh-create-entity"
         data-cy="entityCreateButton"
         class="btn btn-primary jh-create-entity create-features"
@@ -76,7 +76,7 @@
           <td>{{ features.route }}</td>
           <td class="text-end">
             <div class="btn-group">
-              <button
+              <button nz-button nzType="primary"
                 type="submit"
                 [routerLink]="['/features', features.id, 'view']"
                 class="btn btn-info btn-sm"
@@ -90,7 +90,7 @@
                 >
               </button>
 
-              <button
+              <button nz-button nzType="primary"
                 type="submit"
                 [routerLink]="['/features', features.id, 'edit']"
                 class="btn btn-primary btn-sm"
@@ -104,7 +104,7 @@
                 >
               </button>
 
-              <button
+              <button nz-button nzType="primary"
                 type="submit"
                 (click)="delete(features)"
                 class="btn btn-danger btn-sm"
