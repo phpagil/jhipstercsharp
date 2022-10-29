@@ -49,7 +49,7 @@ public static class IdentityConfiguration
                 LastName = "System",
                 Email = "system@localhost",
                 Activated = true,
-                LangKey = "en"
+                LangKey = "pt-br"
             },
             new User
             {
@@ -60,7 +60,7 @@ public static class IdentityConfiguration
                 LastName = "User",
                 Email = "anonymous@localhost",
                 Activated = true,
-                LangKey = "en"
+                LangKey = "pt-br"
             },
             new User
             {
@@ -71,7 +71,7 @@ public static class IdentityConfiguration
                 LastName = "Administrator",
                 Email = "admin@localhost",
                 Activated = true,
-                LangKey = "en"
+                LangKey = "pt-br"
             },
             new User
             {
@@ -82,7 +82,7 @@ public static class IdentityConfiguration
                 LastName = "User",
                 Email = "user@localhost",
                 Activated = true,
-                LangKey = "en"
+                LangKey = "pt-br"
             }
         };
     }

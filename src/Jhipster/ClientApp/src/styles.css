@@ -32,9 +32,12 @@ nz-breadcrumb {
 }
 
 .inner-content {
-    padding: 24px;
     background: #fff;
     min-height: 860px;
+}
+
+.ant-tabs-content {
+    padding: 26px;
 }
 
 nz-footer {
@@ -59,4 +62,12 @@ nz-footer {
 .ant-menu.ant-menu-dark .ant-menu-sub {
     color: rgba(255, 255, 255, 0.65);
     background: none;
+}
+
+nz-content {
+    margin: 30px 15px !important;
+}
+
+button > i {
+    font-size: 16px !important;
 }

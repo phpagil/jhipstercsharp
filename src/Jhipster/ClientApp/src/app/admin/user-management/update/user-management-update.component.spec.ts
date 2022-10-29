@@ -39,7 +39,7 @@ describe("User Management Update Component", () => {
                 "last",
                 "first@last.com",
                 true,
-                "en",
+                "pt-br",
                 [Authority.USER],
                 "admin"
               ),

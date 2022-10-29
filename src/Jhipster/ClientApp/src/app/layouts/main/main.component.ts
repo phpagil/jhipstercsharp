@@ -12,6 +12,7 @@ import { AccountService } from "app/core/auth/account.service";
 })
 export class MainComponent implements OnInit {
   public isCollapsed = true;
+  public pageTitle = '';
 
   private renderer: Renderer2;
 
@@ -52,7 +53,7 @@ export class MainComponent implements OnInit {
     );
   }
 
-  private getPageTitle(routeSnapshot: ActivatedRouteSnapshot): string {
+  public getPageTitle(routeSnapshot: ActivatedRouteSnapshot): string {
     const title: string = routeSnapshot.data["pageTitle"] ?? "";
     if (routeSnapshot.firstChild) {
       return this.getPageTitle(routeSnapshot.firstChild) || title;
@@ -61,12 +62,12 @@ export class MainComponent implements OnInit {
   }
 
   private updateTitle(): void {
-    let pageTitle = this.getPageTitle(this.router.routerState.snapshot.root);
-    if (!pageTitle) {
-      pageTitle = "global.title";
+    this.pageTitle = this.getPageTitle(this.router.routerState.snapshot.root);
+    if (!this.pageTitle) {
+      this.pageTitle = "global.title";
     }
     this.translateService
-      .get(pageTitle)
-      .subscribe((title) => this.titleService.setTitle(title));
+      .get(this.pageTitle)
+      .subscribe((title) => { this.titleService.setTitle(title); this.pageTitle = title; });
   }
 }

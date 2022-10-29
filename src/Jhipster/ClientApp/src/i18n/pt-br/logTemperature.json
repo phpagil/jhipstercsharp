@@ -2,20 +2,20 @@
   "jhipsterApp": {
     "logTemperature": {
       "home": {
-        "title": "Log Temperatures",
+        "title": "Medição de Temperatura",
         "refreshListLabel": "Atualizar lista",
-        "createLabel": "Criar novo Log Temperature",
-        "createOrEditLabel": "Criar ou editar Log Temperature",
-        "notFound": "Nenhum Log Temperature encontrado"
+        "createLabel": "Criar nova Medição de Temperatura",
+        "createOrEditLabel": "Criar ou editar Medição de Temperatura",
+        "notFound": "Nenhum Medição de Temperatura encontrado"
       },
-      "created": "Um novo Log Temperature foi criado com o identificador {{ param }}",
-      "updated": "Um Log Temperature foi atualizado com o identificador {{ param }}",
-      "deleted": "Um Log Temperature foi excluído com o identificador {{ param }}",
+      "created": "Um nova Medição de Temperatura foi criado com o identificador {{ param }}",
+      "updated": "Um Medição de Temperatura foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Medição de Temperatura foi excluído com o identificador {{ param }}",
       "delete": {
-        "question": "Tem certeza de que deseja excluir Log Temperature {{ id }}?"
+        "question": "Tem certeza de que deseja excluir Medição de Temperatura {{ id }}?"
       },
       "detail": {
-        "title": "Log Temperature"
+        "title": "Medição de Temperatura"
       },
       "id": "ID",
       "createdAt": "Created At",

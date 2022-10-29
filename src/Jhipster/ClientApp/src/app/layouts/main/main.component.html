@@ -20,12 +20,10 @@
     <router-outlet name="navbar"></router-outlet>
   </nz-sider>
   <nz-layout>
-    <nz-header></nz-header>
+    <nz-header>
+      <span>{{pageTitle}}</span>
+    </nz-header>
     <nz-content>
-      <nz-breadcrumb>
-        <nz-breadcrumb-item>Dashboard</nz-breadcrumb-item>
-        <nz-breadcrumb-item>Home</nz-breadcrumb-item>
-      </nz-breadcrumb>
       <div class="inner-content">
         <router-outlet></router-outlet>
       </div>

@@ -56,7 +56,7 @@ public class UsersResourceIntTest
     private const string DefaultImageurl = "http://placehold.it/50x50";
     private const string UpdatedImageurl = "http://placehold.it/40x40";
 
-    private const string DefaultLangkey = "en";
+    private const string DefaultLangkey = "pt-br";
     private const string UpdatedLangkey = "fr";
 
     private readonly AppWebApplicationFactory<TestStartup> _factory;
@@ -429,7 +429,7 @@ public class UsersResourceIntTest
             FirstName = "java",
             LastName = "hipster",
             ImageUrl = "",
-            LangKey = "en"
+            LangKey = "pt-br"
         };
         await _userManager.CreateAsync(anotherUser);
 
@@ -473,7 +473,7 @@ public class UsersResourceIntTest
             FirstName = "java",
             LastName = "hipster",
             ImageUrl = "",
-            LangKey = "en"
+            LangKey = "pt-br"
         };
         await _userManager.CreateAsync(anotherUser);
 
