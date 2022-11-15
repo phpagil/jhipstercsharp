@@ -1,24 +1,25 @@
 {
   "global": {
-    "title": "Jhipster",
+    "title": "Positione",
     "browsehappy": "Você está usando um navegador <strong>desatualizado</strong>. Favor <a href=\"http://browsehappy.com/?locale=pt_BR\">atualize o seu navegador</a> para ter uma experiência melhor.",
     "menu": {
       "home": "Início",
+      "dashboard": "Painel",
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entidades",
-        "device": "Device",
-        "features": "Features",
-        "logTemperature": "Log Temperature",
-        "logVision": "Log Vision",
-        "notification": "Notification",
-        "notificationGroup": "Notification Group",
-        "productionLine": "Production Line",
+        "device": "Sensores",
+        "features": "Funcionalidades",
+        "logTemperature": "Logs de Temperatura",
+        "logVision": "Logs de Visão",
+        "notification": "Notificação",
+        "notificationGroup": "Grupos",
+        "productionLine": "Linhas de Produção",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {
         "main": "Conta",
-        "settings": "Configuração",
+        "settings": "Configurações",
         "password": "Senha",
         "sessions": "Sessões",
         "login": "Entrar",

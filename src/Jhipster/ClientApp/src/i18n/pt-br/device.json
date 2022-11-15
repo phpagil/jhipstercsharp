@@ -18,14 +18,14 @@
         "title": "Device"
       },
       "id": "ID",
-      "description": "Description",
-      "sensorType": "Sensor Type",
+      "description": "Descrição",
+      "sensorType": "Tipo de Sensor",
       "macAddress": "Mac Address",
       "status": "Status",
-      "productionLine": "Production Line",
-      "notificationGroup": "Notification Group",
-      "logTemperature": "Log Temperature",
-      "logVision": "Log Vision"
+      "productionLine": "Linhas",
+      "notificationGroup": "Grupos",
+      "logTemperature": "Leituras Temperatura",
+      "logVision": "Leituras Visão"
     }
   }
 }

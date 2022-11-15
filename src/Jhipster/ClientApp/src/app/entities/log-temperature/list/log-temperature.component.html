@@ -1,386 +1,150 @@
-<nz-tabset [(nzSelectedIndex)]="index" nzType="editable-card" nzHideAdd>
-    <nz-tab [nzClosable]="false" [nzTitle]="'Medições'">
-        <div class="d-flex justify-content-end">
-            <span>Filtrar por</span>
-            <form
-                nz-form
-                [nzLayout]="'inline'"
-                [formGroup]="validateForm"
-                (ngSubmit)="submitForm()"
-            >
-            
-                    <nz-select
-                    [(ngModel)]="selectedUser"
-                    (nzScrollToBottom)="loadMore()"
-                    nzPlaceHolder="Select users"
-                    nzAllowClear
-                    [nzDropdownRender]="renderTemplate"
-                    >
-                    <nz-option *ngFor="let o of optionList" [nzValue]="o" [nzLabel]="o"></nz-option>
-                    </nz-select>
-                    <ng-template #renderTemplate>
-                    <nz-spin *ngIf="isLoading"></nz-spin>
-                    </ng-template>
-
-                <nz-form-item>
-                    <nz-form-control nzErrorTip="Please input your Password!">
-                        <nz-date-picker
-                            [(ngModel)]="date"
-                            (ngModelChange)="onChange($event)"
-                            nzPlaceHolder="Selecione a data"
-                        ></nz-date-picker>
-                    </nz-form-control>
-                </nz-form-item>
-            </form>
-        </div>
-
-        <jhi-alert-error></jhi-alert-error>
-
-        <jhi-alert></jhi-alert>
-
-        <div
-            class="alert alert-warning"
-            id="no-result"
-            *ngIf="logTemperatures?.length === 0"
+<div>
+    <h2 id="page-heading" data-cy="LogTemperatureHeading">
+      <span jhiTranslate="jhipsterApp.logTemperature.home.title"
+        >Log Temperatures</span
+      >
+  
+      <div class="d-flex justify-content-end">
+        <button nz-button nzType="primary"
+          class="btn btn-info me-2"
+          (click)="loadAll()"
+          [disabled]="isLoading"
         >
-            <span jhiTranslate="jhipsterApp.logTemperature.home.notFound"
-                >No logTemperatures found</span
-            >
-        </div>
-
-        <div
-            class="table-responsive"
-            id="entities"
-            *ngIf="logTemperatures && logTemperatures.length > 0"
+          <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+          <span jhiTranslate="jhipsterApp.logTemperature.home.refreshListLabel"
+            >Refresh List</span
+          >
+        </button>
+  
+        <button nz-button nzType="primary"
+          id="jh-create-entity"
+          data-cy="entityCreateButton"
+          class="btn btn-primary jh-create-entity create-log-temperature"
+          [routerLink]="['/log-temperature/new']"
         >
-            <nz-table #basicTable [nzData]="logTemperatures">
-                <thead>
-                    <tr>
-                        <th scope="col">
-                            <span jhiTranslate="global.field.id">ID</span>
-                        </th>
-                        <th scope="col">
-                            <span>Linha</span>
-                        </th>
-                        <th scope="col">
-                            <span>Sensor</span>
-                        </th>
-                        <th scope="col">
-                            <span
-                                >Data / Hora</span
-                            >
-                        </th>
-                        <th scope="col">
-                            <span
-                                >Temp. Entrada</span
-                            >
-                        </th>
-                        <th scope="col">
-                            <span
-                                >Temp. Saída</span
-                            >
-                        </th>
-                        <th scope="col">
-                            <span
-                                jhiTranslate="jhipsterApp.logTemperature.status"
-                                >Status</span
-                            >
-                        </th>
-                        <th scope="col">
-                            <span
-                                jhiTranslate="jhipsterApp.logTemperature.device"
-                                >Device</span
-                            >
-                        </th>
-                        <th scope="col"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr
-                        *ngFor="
-                            let logTemperature of logTemperatures;
-                            trackBy: trackId
-                        "
-                        data-cy="entityTable"
-                    >
-                        <td>
-                            <a
-                                [routerLink]="[
-                                    '/log-temperature',
-                                    logTemperature.id,
-                                    'view'
-                                ]"
-                                >{{ logTemperature.id }}</a
-                            >
-                        </td>
-                        
-                        <td>
-                            {{
-                                logTemperature.device?.productionLine?.description
-                            }}
-                        </td>
-                        <td>
-                            <div *ngIf="logTemperature.device">
-                                <a
-                                    [routerLink]="[
-                                        '/device',
-                                        logTemperature.device?.id,
-                                        'view'
-                                    ]"
-                                    >{{ logTemperature.device?.description }}</a
-                                >
-                            </div>
-                        </td>
-                          <td>
-                            {{
-                                logTemperature.createdAt | formatMediumDatetime
-                            }}
-                        </td>
-                        <td>{{ (logTemperature.temperature ? logTemperature.temperature : 0)*2.5 }} ºC</td>
-                        <td>{{ logTemperature.temperature }} ºC</td>
-                        <td>
-                        <span style="font-size: 20px" [ngStyle]="{'color': logTemperature.status == 'OK' ? 'green' : 'red' }">
-                            &sdot; 
-                        </span>
-                        {{ logTemperature.status }}
-                        </td>
-                        
-                        <td class="text-end">
-                            <div class="btn-group">
-                                <button
-                                    nz-button
-                                    nzType="text"
-                                    type="submit"
-                                    [routerLink]="[
-                                        '/log-temperature',
-                                        logTemperature.id,
-                                        'view'
-                                    ]"
-                                    data-cy="entityDetailsButton"
-                                >
-                                    <i
-                                        nz-icon
-                                        nzType="eye"
-                                        style="font-size: 18px !important"
-                                        nzTheme="outline"
-                                    ></i>
-                                </button>
-
-                                <!-- <button nz-button nzType="primary"
-                                  type="submit"
-                                  [routerLink]="['/log-temperature', logTemperature.id, 'edit']"
-                                  class="btn btn-primary btn-sm"
-                                  data-cy="entityEditButton"
-                                >
-                                  <fa-icon icon="pencil-alt"></fa-icon>
-                                </button> -->
-
-                                <button
-                                    nz-button
-                                    nzType="text"
-                                    type="submit"
-                                    (click)="delete(logTemperature)"
-                                    data-cy="entityDeleteButton"
-                                >
-                                    <i
-                                        nz-icon
-                                        nzType="close-circle"
-                                        nzTheme="outline"
-                                    ></i>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </nz-table>
-        </div>
-    </nz-tab>
-
-    <nz-tab [nzClosable]="false" [nzTitle]="'Alertas'">
-        <h2 id="page-heading" data-cy="LogTemperatureHeading">
-            <span jhiTranslate="jhipsterApp.logTemperature.home.title"
-                >Medição de Temperatura</span
+          <fa-icon icon="plus"></fa-icon>
+          <span jhiTranslate="jhipsterApp.logTemperature.home.createLabel">
+            Create a new Log Temperature
+          </span>
+        </button>
+      </div>
+    </h2>
+  
+    <jhi-alert-error></jhi-alert-error>
+  
+    <jhi-alert></jhi-alert>
+  
+    <div
+      class="alert alert-warning"
+      id="no-result"
+      *ngIf="logTemperatures?.length === 0"
+    >
+      <span jhiTranslate="jhipsterApp.logTemperature.home.notFound"
+        >No logTemperatures found</span
+      >
+    </div>
+  
+    <div
+      class="table-responsive"
+      id="entities"
+      *ngIf="logTemperatures && logTemperatures.length > 0"
+    >
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr>
+            <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+            <th scope="col">
+              <span jhiTranslate="jhipsterApp.logTemperature.createdAt"
+                >Created At</span
+              >
+            </th>
+            <th scope="col">
+              <span jhiTranslate="jhipsterApp.logTemperature.temperature"
+                >Temperature</span
+              >
+            </th>
+            <th scope="col">
+              <span jhiTranslate="jhipsterApp.logTemperature.status">Status</span>
+            </th>
+            <th scope="col">
+              <span jhiTranslate="jhipsterApp.logTemperature.device">Device</span>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            *ngFor="let logTemperature of logTemperatures; trackBy: trackId"
+            data-cy="entityTable"
+          >
+            <td>
+              <a [routerLink]="['/log-temperature', logTemperature.id, 'view']">{{
+                logTemperature.id
+              }}</a>
+            </td>
+            <td>{{ logTemperature.createdAt | formatMediumDatetime }}</td>
+            <td>{{ logTemperature.temperature }}</td>
+            <td
+              jhiTranslate="{{ 'jhipsterApp.Status.' + logTemperature.status }}"
             >
-
-            <div class="d-flex justify-content-end">
-                <button
-                    nz-button
-                    nzType="primary"
-                    class="btn btn-info me-2"
-                    (click)="loadAll()"
-                    [disabled]="isLoading"
+              {{ logTemperature.status }}
+            </td>
+            <td>
+              <div *ngIf="logTemperature.device">
+                <a
+                  [routerLink]="['/device', logTemperature.device?.id, 'view']"
+                  >{{ logTemperature.device?.id }}</a
                 >
-                    <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
-                    <span
-                        jhiTranslate="jhipsterApp.logTemperature.home.refreshListLabel"
-                        >Refresh List</span
-                    >
-                </button>
-
-                <button
-                    nz-button
-                    nzType="primary"
-                    id="jh-create-entity"
-                    data-cy="entityCreateButton"
-                    class="btn btn-primary jh-create-entity create-log-temperature"
-                    [routerLink]="['/log-temperature/new']"
+              </div>
+            </td>
+            <td class="text-end">
+              <div class="btn-group">
+                <button nz-button nzType="primary"
+                  type="submit"
+                  [routerLink]="['/log-temperature', logTemperature.id, 'view']"
+                  class="btn btn-info btn-sm"
+                  data-cy="entityDetailsButton"
                 >
-                    <fa-icon icon="plus"></fa-icon>
-                    <span
-                        jhiTranslate="jhipsterApp.logTemperature.home.createLabel"
-                    >
-                        Create a new Log Temperature
-                    </span>
+                  <fa-icon icon="eye"></fa-icon>
+                  <span
+                    class="d-none d-md-inline"
+                    jhiTranslate="entity.action.view"
+                    >View</span
+                  >
                 </button>
-            </div>
-        </h2>
-
-        <jhi-alert-error></jhi-alert-error>
-
-        <jhi-alert></jhi-alert>
-
-        <div
-            class="alert alert-warning"
-            id="no-result"
-            *ngIf="logTemperatures?.length === 0"
-        >
-            <span jhiTranslate="jhipsterApp.logTemperature.home.notFound"
-                >No logTemperatures found</span
-            >
-        </div>
-
-        <div
-            class="table-responsive"
-            id="entities"
-            *ngIf="logTemperatures && logTemperatures.length > 0"
-        >
-            <table class="table table-striped" aria-describedby="page-heading">
-                <thead>
-                    <tr>
-                        <th scope="col">
-                            <span jhiTranslate="global.field.id">ID</span>
-                        </th>
-                        <th scope="col">
-                            <span
-                                jhiTranslate="jhipsterApp.logTemperature.createdAt"
-                                >Created At</span
-                            >
-                        </th>
-                        <th scope="col">
-                            <span
-                                jhiTranslate="jhipsterApp.logTemperature.temperature"
-                                >Temperature</span
-                            >
-                        </th>
-                        <th scope="col">
-                            <span
-                                jhiTranslate="jhipsterApp.logTemperature.status"
-                                >Status</span
-                            >
-                        </th>
-                        <th scope="col">
-                            <span
-                                jhiTranslate="jhipsterApp.logTemperature.device"
-                                >Device</span
-                            >
-                        </th>
-                        <th scope="col"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr
-                        *ngFor="
-                            let logTemperature of logTemperatures;
-                            trackBy: trackId
-                        "
-                        data-cy="entityTable"
-                    >
-                        <td>
-                            <a
-                                [routerLink]="[
-                                    '/log-temperature',
-                                    logTemperature.id,
-                                    'view'
-                                ]"
-                                >{{ logTemperature.id }}</a
-                            >
-                        </td>
-                        <td>
-                            {{
-                                logTemperature.createdAt | formatMediumDatetime
-                            }}
-                        </td>
-                        <td>{{ logTemperature.temperature }}</td>
-                        <td
-                            jhiTranslate="{{
-                                'jhipsterApp.Status.' + logTemperature.status
-                            }}"
-                        >
-                            {{ logTemperature.status }}
-                        </td>
-                        <td>
-                            <div *ngIf="logTemperature.device">
-                                <a
-                                    [routerLink]="[
-                                        '/device',
-                                        logTemperature.device?.id,
-                                        'view'
-                                    ]"
-                                    >{{ logTemperature.device?.id }}</a
-                                >
-                            </div>
-                        </td>
-                        <td class="text-end">
-                            <div class="btn-group">
-                                <button
-                                    nz-button
-                                    nzType="primary"
-                                    type="submit"
-                                    [routerLink]="[
-                                        '/log-temperature',
-                                        logTemperature.id,
-                                        'view'
-                                    ]"
-                                    class="btn btn-info btn-sm"
-                                    data-cy="entityDetailsButton"
-                                >
-                                    <fa-icon icon="eye"></fa-icon>
-                                </button>
-
-                                <button
-                                    nz-button
-                                    nzType="primary"
-                                    type="submit"
-                                    [routerLink]="[
-                                        '/log-temperature',
-                                        logTemperature.id,
-                                        'edit'
-                                    ]"
-                                    class="btn btn-primary btn-sm"
-                                    data-cy="entityEditButton"
-                                >
-                                    <fa-icon icon="pencil-alt"></fa-icon>
-                                </button>
-
-                                <button
-                                    nz-button
-                                    nzType="primary"
-                                    type="submit"
-                                    (click)="delete(logTemperature)"
-                                    class="btn btn-danger btn-sm"
-                                    data-cy="entityDeleteButton"
-                                >
-                                    <fa-icon icon="times"></fa-icon>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </nz-tab>
-
-    <nz-tab [nzClosable]="false" [nzTitle]="'Parâmetros'">
-        content prameters
-    </nz-tab>
-</nz-tabset>
+  
+                <button nz-button nzType="primary"
+                  type="submit"
+                  [routerLink]="['/log-temperature', logTemperature.id, 'edit']"
+                  class="btn btn-primary btn-sm"
+                  data-cy="entityEditButton"
+                >
+                  <fa-icon icon="pencil-alt"></fa-icon>
+                  <span
+                    class="d-none d-md-inline"
+                    jhiTranslate="entity.action.edit"
+                    >Edit</span
+                  >
+                </button>
+  
+                <button nz-button nzType="primary"
+                  type="submit"
+                  (click)="delete(logTemperature)"
+                  class="btn btn-danger btn-sm"
+                  data-cy="entityDeleteButton"
+                >
+                  <fa-icon icon="times"></fa-icon>
+                  <span
+                    class="d-none d-md-inline"
+                    jhiTranslate="entity.action.delete"
+                    >Delete</span
+                  >
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

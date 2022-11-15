@@ -1,3 +1,4 @@
+import { DashboardComponent } from './entities/dashboard/dashboard.component';
 import { NgModule, LOCALE_ID } from "@angular/core";
 import { registerLocaleData } from "@angular/common";
 import { HttpClientJsonpModule, HttpClientModule } from "@angular/common/http";
@@ -8,6 +9,7 @@ import { DragDropModule } from "@angular/cdk/drag-drop";
 import { ScrollingModule } from "@angular/cdk/scrolling";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { DashboardModule } from './entities/dashboard/dashboard.module';
 import { pt_BR } from 'ng-zorro-antd/i18n';
 import en from "@angular/common/locales/en";
 
@@ -27,6 +29,7 @@ import { SharedModule } from "app/shared/shared.module";
 import { TranslationModule } from "app/shared/language/translation.module";
 import { AppRoutingModule } from "./app-routing.module";
 import { HomeModule } from "./home/home.module";
+
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 import { NgbDateDayjsAdapter } from "./config/datepicker-adapter";
 import { fontAwesomeIcons } from "./config/font-awesome-icons";
@@ -51,6 +54,7 @@ import { ErrorComponent } from "./layouts/error/error.component";
         BrowserAnimationsModule,
         ScrollingModule,
         DragDropModule,
+        DashboardModule,
         NgxWebstorageModule.forRoot({
             prefix: "jhi",
             separator: "-",

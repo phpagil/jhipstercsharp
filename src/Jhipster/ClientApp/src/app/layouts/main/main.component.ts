@@ -5,6 +5,8 @@ import { TranslateService, LangChangeEvent } from "@ngx-translate/core";
 import dayjs from "dayjs/esm";
 
 import { AccountService } from "app/core/auth/account.service";
+import { Account } from "app/core/auth/account.model";
+import { Subject, takeUntil } from "rxjs";
 
 @Component({
   selector: "jhi-main",
@@ -13,6 +15,9 @@ import { AccountService } from "app/core/auth/account.service";
 export class MainComponent implements OnInit {
   public isCollapsed = true;
   public pageTitle = '';
+
+  account: Account | null = null;
+  private readonly destroy$ = new Subject<void>();
 
   private renderer: Renderer2;
 
@@ -33,6 +38,11 @@ export class MainComponent implements OnInit {
 
     // try to log in automatically
     this.accountService.identity().subscribe();
+
+    this.accountService
+      .getAuthenticationState()
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((account) => (this.account = account));
 
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {

@@ -1,19 +1,19 @@
 {
   "home": {
-    "title": "Bem vindo, Java Hipster!",
+    "title": "Bem vindo ao Position One",
     "subtitle": "Esta é a página principal",
     "logged": {
       "message": "Você está logado como \"{{username}}\"."
     },
-    "question": "Em caso de dúvida sobre o JHipster:",
+    "question": "Em caso de dúvida sobre o Position One:",
     "link": {
-      "homepage": "Página principal JHipster",
-      "stackoverflow": "JHipster no Stack Overflow",
-      "bugtracker": "JHipster bug tracker",
-      "chat": "Sala de bate-papo pública JHipster",
+      "homepage": "Página principal Position One",
+      "stackoverflow": "Position One no Stack Overflow",
+      "bugtracker": "Position One bug tracker",
+      "chat": "Sala de bate-papo pública Position One",
       "follow": "siga @jhipster no Twitter"
     },
-    "like": "Se você gosta do JHipster, não se esqueça de avaliar no",
+    "like": "Se você gosta do Position One, não se esqueça de avaliar no",
     "github": "GitHub"
   }
 }

@@ -65,9 +65,18 @@ nz-footer {
 }
 
 nz-content {
+    margin: 0px !important;
+}
+
+nz-content .inner-content {
     margin: 30px 15px !important;
+    padding: 10px;
 }
 
 button > i {
     font-size: 16px !important;
+}
+
+.col-8 {
+    padding: 10px !important;
 }

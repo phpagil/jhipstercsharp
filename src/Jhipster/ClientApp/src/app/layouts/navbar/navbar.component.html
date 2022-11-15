@@ -1,12 +1,12 @@
 <ul nz-menu nzTheme="dark" nzMode="inline">
     <li nz-menu-item>
-        <a routerLink="/" (click)="collapseNavbar()">
+        <a routerLink="/dashboard" (click)="collapseNavbar()">
             <span nz-icon style="font-size: 16px" nzType="dashboard"></span>
-            <span>Dashboard</span>
+            <span jhiTranslate="global.menu.dashboard">Dashboard</span>
         </a>
     </li>
     <li nz-menu-item>
-        <span nz-icon style="font-size: 16px" nzType="fire"></span>
+        <img src="../../../content/images/thermometer-icon.svg" style="width: 16px; margin-right: 8px;" /> 
         <span>
             <a
                 jhiTranslate="global.menu.entities.logTemperature"
@@ -16,11 +16,7 @@
         </span>
     </li>
     <li nz-menu-item>
-        <span
-            nz-icon
-            style="font-size: 16px"
-            nzType="video-camera"
-        ></span>
+        <img src="../../../content/images/eye-vision-icon.svg" style="width: 16px; margin-right: 8px;" /> 
         <span>
             <a
                 jhiTranslate="global.menu.entities.logVision"
@@ -31,30 +27,10 @@
     </li>
     <li nz-submenu>
         <span title>
-          <span nz-icon  style="font-size: 16px" nzType="setting"></span>
-          <span>Settings</span>
+          <img src="../../../content/images/settings-icon.svg" style="width: 16px; margin-right: 4px;" /> 
+          <span jhiTranslate="global.menu.account.settings">Settings</span>
         </span>
         <ul>
-            <li nz-menu-item>
-                <span nz-icon style="font-size: 16px" nzType="usb"></span>
-                <span>
-                    <a
-                        jhiTranslate="global.menu.entities.device"
-                        routerLink="/device"
-                        >Devices</a
-                    >
-                </span>
-            </li>
-            <li nz-menu-item>
-                <span nz-icon style="font-size: 16px" nzType="mail"></span>
-                <span>
-                    <a
-                        jhiTranslate="global.menu.entities.notificationGroup"
-                        routerLink="/notification-group"
-                        >Notification Group</a
-                    >
-                </span>
-            </li>
             <li nz-menu-item>
                 <span
                     nz-icon
@@ -65,25 +41,45 @@
                     <a
                         jhiTranslate="global.menu.entities.productionLine"
                         routerLink="/production-line"
-                        >Production Line</a
+                        >Linhas</a
                     >
                 </span>
             </li>
+            <li nz-menu-item>
+                <span nz-icon style="font-size: 16px" nzType="usb"></span>
+                <span>
+                    <a
+                        jhiTranslate="global.menu.entities.device"
+                        routerLink="/device"
+                        >Sensores</a
+                    >
+                </span>
+            </li>
+            <li nz-menu-item>
+                <span nz-icon style="font-size: 16px" nzType="mail"></span>
+                <span>
+                    <a
+                        jhiTranslate="global.menu.entities.notificationGroup"
+                        routerLink="/notification-group"
+                        >Grupos</a
+                    >
+                </span>
+            </li>
+            
         </ul>
     </li>
-    <li nz-submenu nzTitle="Relatórios" nzIcon="bar-chart">
+    <li nz-submenu>
+        <span title>
+            <img src="../../../content/images/report-icon.svg" style="width: 22px; margin-left: -4px; margin-right: 4px;" /> 
+            <span>Relatórios</span>
+        </span>
         <ul>
             <li nz-menu-item>Medição de Temperatura</li>
             <li nz-menu-item>Leituras de Visão</li>
         </ul>
     </li>
     <li nz-menu-item>
-        <span
-            nz-icon
-            style="font-size: 16px"
-            nzType="logout"
-            nzTheme="outline"
-        ></span>
+        <img src="../../../content/images/logout-icon.svg" style="width: 16px; margin-right: 8px;" /> 
         <span><a
           jhiTranslate="global.menu.account.logout"
           (click)="logout()"
