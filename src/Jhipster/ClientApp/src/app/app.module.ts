@@ -1,6 +1,7 @@
-import { DashboardComponent } from './entities/dashboard/dashboard.component';
 import { NgModule, LOCALE_ID } from "@angular/core";
 import { registerLocaleData } from "@angular/common";
+
+
 import { HttpClientJsonpModule, HttpClientModule } from "@angular/common/http";
 import locale from "@angular/common/locales/pt";
 import { BrowserModule, Title } from "@angular/platform-browser";

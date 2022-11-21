@@ -1,1 +1,57 @@
-<p>dashboard works!</p>
+<div nz-row>
+  <div nz-col nzSpan="12">
+        <ngx-charts-bar-horizontal
+            [view]="[500, 300]"
+            [scheme]="colorScheme"
+            [results]="single"
+            [xAxis]="showXAxis"
+            [yAxis]="showYAxis"
+            [legend]="showLegend"
+            [showXAxisLabel]="showXAxisLabel"
+            [showYAxisLabel]="showYAxisLabel"
+            [xAxisLabel]="xAxisLabel"
+            [yAxisLabel]="yAxisLabel"
+            (select)="onSelect($event)"
+        >
+        </ngx-charts-bar-horizontal>
+    </div>
+    <div nz-col nzSpan="12">
+        <ngx-charts-gauge
+            [view]="[500, 300]"
+            [scheme]="colorScheme"
+            [results]="single"
+            [legend]="legend"
+            [legendPosition]="legendPosition"
+            (select)="onSelect($event)"
+            (activate)="onActivate($event)"
+            (deactivate)="onDeactivate($event)"
+        >
+        </ngx-charts-gauge>
+    </div>
+</div>
+<div nz-row>
+  <div nz-col nzSpan="12">
+    <ngx-charts-pie-grid
+      [view]="[500, 300]"
+      [scheme]="colorScheme"
+      [results]="single"
+      (select)="onSelect($event)">
+    </ngx-charts-pie-grid>
+  </div>
+  <div nz-col nzSpan="12">
+    <ngx-charts-bar-horizontal-2d
+      [view]="[500, 300]"
+      [scheme]="colorScheme"
+      [results]="multi"
+      [gradient]="gradient"
+      [xAxis]="showXAxis"
+      [yAxis]="showYAxis"
+      [legend]="showLegend"
+      [showXAxisLabel]="showXAxisLabel"
+      [showYAxisLabel]="showYAxisLabel"
+      [xAxisLabel]="xAxisLabel"
+      [yAxisLabel]="yAxisLabel"
+      (select)="onSelect($event)">
+    </ngx-charts-bar-horizontal-2d>
+  </div>
+</div>

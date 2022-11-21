@@ -81,3 +81,4 @@ export class MainComponent implements OnInit {
       .subscribe((title) => { this.titleService.setTitle(title); this.pageTitle = title; });
   }
 }
+

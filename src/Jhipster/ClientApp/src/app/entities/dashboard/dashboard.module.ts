@@ -5,10 +5,11 @@ import { LOGIN_ROUTE } from 'app/login/login.route';
 import { SharedModule } from 'app/shared/shared.module';
 import { DashboardComponent } from './dashboard.component';
 import { DashboardRoutingModule } from './route/dashboard-routing.module';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 
 @NgModule({
-  imports: [SharedModule, DashboardRoutingModule],
+  imports: [SharedModule, NgxChartsModule, DashboardRoutingModule],
   declarations: [DashboardComponent],
   exports: [DashboardComponent]
 })

@@ -58,7 +58,7 @@ import { RouterModule } from "@angular/router";
       },
       {
         path: "dashboard",
-        data: { pageTitle: "Dashboard" },
+        data: { pageTitle: "global.menu.dashboard" },
         loadChildren: () =>
           import("./dashboard/dashboard.module").then((m) => m.DashboardModule),
       },
